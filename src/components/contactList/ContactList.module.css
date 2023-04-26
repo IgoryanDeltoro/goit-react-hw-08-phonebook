@@ -1,0 +1,13 @@
+.table {
+  width: 100%;
+}
+.loadingText {
+  color: green;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.errorText {
+  color: red;
+  text-align: center;
+  margin-bottom: 20px;
+}
