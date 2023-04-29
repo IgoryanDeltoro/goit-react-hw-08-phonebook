@@ -24,3 +24,13 @@ input:focus {
   border: 1px solid #168fc7;
   box-shadow: 5px 5px 5px #168fc7;
 }
+.container {
+  width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px;
+}
+
+.title {
+  margin-bottom: 20px;
+}

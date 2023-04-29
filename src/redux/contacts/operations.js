@@ -8,10 +8,13 @@ import {
 export const getContactsThunk = createAsyncThunk(
   'contacts/getContacts',
   async (_, thunkAPI) => {
-    try {
-      return await getContactsQuery();
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+    const token = thunkAPI.getState().auth.token;
+    if (token) {
+      try {
+        return await getContactsQuery(token);
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
     }
   }
 );

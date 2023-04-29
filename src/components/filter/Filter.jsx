@@ -1,4 +1,4 @@
-import { setValueFilter } from 'redux/contactsSplice';
+import { setValueFilter } from 'redux/contacts/contactsSplice';
 import css from '../filter/Filter.module.css';
 import { useDispatch } from 'react-redux';
 
@@ -14,21 +14,24 @@ const Filter = () => {
   };
 
   return (
-    <div className={css.container}>
-      <label className={css.label} htmlFor={filterID}>
-        Find contacts by name
-      </label>
-      <input
-        className={css.input}
-        type="text"
-        name="name"
-        id={filterID}
-        onChange={hendleOnchange}
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-        required
-      />
-    </div>
+    <>
+      <h2 className={css.title}>Contacts</h2>
+      <div className={css.container}>
+        <label className={css.label} htmlFor={filterID}>
+          Find contacts by name
+        </label>
+        <input
+          className={css.input}
+          type="text"
+          name="name"
+          id={filterID}
+          onChange={hendleOnchange}
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+        />
+      </div>
+    </>
   );
 };
 

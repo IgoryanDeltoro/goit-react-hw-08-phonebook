@@ -1,18 +1,52 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://64418cc7fadc69b8e086e6d7.mockapi.io';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
-export const getContactsQuery = async () => {
-  const response = await axios.get('/phone');
-  return response.data;
+const TOKEN = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unSet() {
+    axios.defaults.headers.common.Authorization = '';
+  },
+};
+// users request
+export const signUpQuery = async credentials => {
+  const { data } = await axios.post('/users/signup', credentials);
+  TOKEN.set(data.token);
+  return data;
 };
 
-export const createContactsQuery = async data => {
-  const response = await axios.post('/phone', { ...data });
-  return response.data;
+export const logInQuery = async credentials => {
+  const { data } = await axios.post('/users/login', credentials);
+  TOKEN.set(data.token);
+  return data;
+};
+export const logOutQuery = async credentials => {
+  TOKEN.set(credentials);
+  const { data } = await axios.post('/users/logout');
+  TOKEN.unSet();
+  return data;
+};
+export const getCurrentUserQuery = async token => {
+  TOKEN.set(token);
+  const { data } = await axios.get('/users/current');
+  return data;
+};
+
+// contacts query
+export const getContactsQuery = async token => {
+  TOKEN.set(token);
+  const { data } = await axios.get('/contacts');
+  return data;
+};
+
+export const createContactsQuery = async credentials => {
+  const { data } = await axios.post('/contacts', { ...credentials });
+  return data;
 };
 
 export const deleteContactsQuery = async id => {
-  const response = await axios.delete(`/phone/${id}`);
-  return response.data;
+  const { data } = await axios.delete(`/contacts/${id}`);
+  return data;
 };

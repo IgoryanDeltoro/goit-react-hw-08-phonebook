@@ -5,7 +5,7 @@ import {
   selectError,
   selectIsLoading,
   selectValueFilter,
-} from 'redux/selectors';
+} from 'redux/contacts/selectors';
 import { useSelector } from 'react-redux';
 import ContactItems from './contactItems/ContactItems';
 import css from '../contactList/ContactList.module.css';
@@ -22,11 +22,11 @@ const ContactList = () => {
       {error && <h2 className={css.errorText}>{error}</h2>}
       <table className={css.table}>
         <tbody>
-          {contacts.map(({ id, name, phone }) => {
+          {contacts.map(({ id, name, number }) => {
             const lowerCase = name.toLowerCase();
             if (lowerCase.includes(filter)) {
               return (
-                <ContactItems key={id} id={id} name={name} number={phone} />
+                <ContactItems key={id} id={id} name={name} number={number} />
               );
             }
           })}

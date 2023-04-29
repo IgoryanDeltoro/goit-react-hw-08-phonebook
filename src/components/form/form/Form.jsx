@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import css from '../form/Form.module.css';
 const shortid = require('shortid');
 
-const Form = ({ submit, change, name, phone }) => {
+const Form = ({ submit, change, name, number }) => {
   const nameID = shortid.generate();
   const numberID = shortid.generate();
   return (
@@ -29,7 +29,7 @@ const Form = ({ submit, change, name, phone }) => {
         type="tel"
         name="number"
         id={numberID}
-        value={phone}
+        value={number}
         onChange={change}
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
@@ -46,6 +46,6 @@ Form.propTypes = {
   submit: PropTypes.func.isRequired,
   change: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
 };
 export default Form;
