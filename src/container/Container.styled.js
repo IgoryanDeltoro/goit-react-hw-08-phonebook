@@ -4,7 +4,7 @@ export const Container = styled.div`
   max-width: 900px;
   padding: 20px;
   margin-left: auto;
-  margin-bottom: auto;
+  margin-right: auto;
 `;
 
 export const HeaderContainer = styled.div`
@@ -14,5 +14,5 @@ export const HeaderContainer = styled.div`
   max-width: 900px;
   padding: 20px;
   margin-left: auto;
-  margin-bottom: auto;
+  margin-right: auto;
 `;
