@@ -4,10 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import Form from './form/Form';
 import { selectContacts } from 'redux/contacts/selectors';
 import { createContactThunk } from 'redux/contacts/operations';
+import { ModalForm } from 'modal/ModalForm';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
@@ -27,7 +32,7 @@ const ContactForm = () => {
     }
   };
 
-  const hendleSubmit = event => {
+  const handleSubmit = event => {
     event.preventDefault();
     const index = contacts.findIndex(
       contact => contact.name.toLowerCase() === name.toLowerCase()
@@ -37,26 +42,29 @@ const ContactForm = () => {
       reset();
       return;
     }
-    hendleCoincidence(name);
+    handleCoincidence(name);
     reset();
   };
 
-  const hendleCoincidence = name => {
+  const handleCoincidence = name => {
     alert(`${name} is already in contacts`);
   };
 
   const reset = () => {
     setName('');
     setNumber('');
+    setShow(false);
   };
 
   return (
-    <Form
-      submit={hendleSubmit}
-      change={handleChange}
-      name={name}
-      number={number}
-    />
+    <ModalForm handleClose={handleClose} handleShow={handleShow} show={show}>
+      <Form
+        submit={handleSubmit}
+        change={handleChange}
+        name={name}
+        number={number}
+      />
+    </ModalForm>
   );
 };
 

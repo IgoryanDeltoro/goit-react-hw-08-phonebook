@@ -15,7 +15,6 @@ const Filter = () => {
 
   return (
     <>
-      <h2 className={css.title}>Contacts</h2>
       <div className={css.container}>
         <label className={css.label} htmlFor={filterID}>
           Find contacts by name

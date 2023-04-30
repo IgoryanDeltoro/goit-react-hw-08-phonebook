@@ -9,7 +9,7 @@ export const UserMenu = () => {
   const { user } = useAuth();
   const navigation = useNavigate();
 
-  const hendleLogout = () => {
+  const handleLogout = () => {
     dispatch(logOutThunk());
     navigation('/');
   };
@@ -17,7 +17,7 @@ export const UserMenu = () => {
   return (
     <div className={css.wrapper}>
       <p className={css.username}>Welcome, {user.name}</p>
-      <button type="button" onClick={hendleLogout}>
+      <button type="button" onClick={handleLogout}>
         Logout
       </button>
     </div>

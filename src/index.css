@@ -14,8 +14,6 @@ code {
     monospace;
 }
 
-/* reset */
-
 h1,
 h2,
 h3,
@@ -32,4 +30,8 @@ p {
 
 td {
   padding: 10px;
+}
+img {
+  display: block;
+  width: 100%;
 }

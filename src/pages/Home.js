@@ -1,3 +1,6 @@
+import logo from '.././images/phonebook.webp';
+
 export const Home = () => {
-  return <h1>HELLO WORLD</h1>;
+  // eslint-disable-next-line jsx-a11y/img-redundant-alt
+  return <img src={logo} alt="logo image " />;
 };
