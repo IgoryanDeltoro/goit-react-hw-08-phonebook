@@ -30,5 +30,6 @@ export const BtnDown = styled(Button)(({ theme }) => ({
     position: 'absolute',
     bottom: '25px',
     right: '25px',
+    zIndex: '50px',
   },
 }));
