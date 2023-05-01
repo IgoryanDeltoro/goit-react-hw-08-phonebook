@@ -1,5 +1,4 @@
 import ContactList from 'components/contactList/ContactList';
-import Filter from 'components/filter/Filter';
 import ContactForm from 'components/form/ContactForm';
 import { useAuth } from 'hooks';
 import { useEffect } from 'react';
@@ -17,7 +16,6 @@ export const Contacts = () => {
   return (
     <div>
       <ContactForm />
-      <Filter />
       <ContactList />
     </div>
   );

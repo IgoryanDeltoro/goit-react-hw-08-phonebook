@@ -28,9 +28,15 @@ p {
   margin: 0;
 }
 
-td {
+td,
+th {
   padding: 10px;
+  font-weight: 500;
 }
+th {
+  border-bottom-width: 1px;
+}
+
 img {
   display: block;
   width: 100%;

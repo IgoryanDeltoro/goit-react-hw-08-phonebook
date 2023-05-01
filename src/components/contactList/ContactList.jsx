@@ -21,6 +21,14 @@ const ContactList = () => {
       {isLoading && <h2 className={css.loadingText}>Loading...</h2>}
       {error && <h2 className={css.errorText}>{error}</h2>}
       <table className={css.table}>
+        {contacts.length !== 0 && (
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th colSpan="2">Phone Number</th>
+            </tr>
+          </thead>
+        )}
         <tbody>
           {contacts.map(({ id, name, number }) => {
             const lowerCase = name.toLowerCase();

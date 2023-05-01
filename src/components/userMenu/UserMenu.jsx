@@ -1,8 +1,10 @@
-// import { useAuth } from 'hooks';
+import { useAuth } from 'hooks';
 import { useDispatch } from 'react-redux';
 // import css from '../userMenu/UserMenu.module.css';
 import { logOutThunk } from 'redux/authorization/operations';
 import { useNavigate } from 'react-router-dom';
+import { deepOrange } from '@mui/material/colors';
+import { nameCuter } from 'general/nameCuter';
 import {
   Avatar,
   Box,
@@ -15,7 +17,7 @@ import {
 
 export const UserMenu = ({ close, open, anchorElUser }) => {
   const dispatch = useDispatch();
-  // const { user } = useAuth();
+  const { user } = useAuth();
   const navigation = useNavigate();
 
   const handleLogout = () => {
@@ -29,7 +31,9 @@ export const UserMenu = ({ close, open, anchorElUser }) => {
     >
       <Tooltip title="Open settings">
         <IconButton onClick={open} sx={{ p: 0 }}>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+          <Avatar sx={{ bgcolor: deepOrange[500] }}>
+            {nameCuter(user.name)}
+          </Avatar>
         </IconButton>
       </Tooltip>
       <Menu

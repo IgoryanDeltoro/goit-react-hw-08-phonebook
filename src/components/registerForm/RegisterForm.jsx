@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 // import css from '../registerForm/RegisterForm.module.css';
 import { signUpThunk } from 'redux/authorization/operations';
 import { useNavigate } from 'react-router-dom';
-import { FormBox } from 'css/formBox.styled';
+import { FormBox } from 'container/formBox.styled';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();

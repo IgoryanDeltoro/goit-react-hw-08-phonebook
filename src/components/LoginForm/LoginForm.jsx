@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { logInThunk } from 'redux/authorization/operations';
 import { useNavigate } from 'react-router-dom';
-import { FormBox } from 'css/formBox.styled';
+import { FormBox } from 'container/formBox.styled';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
