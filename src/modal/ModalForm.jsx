@@ -1,4 +1,5 @@
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
+import Button from '@mui/material/Button';
 import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import css from '../modal/ModalForm.module.css';
@@ -8,8 +9,8 @@ export const ModalForm = ({ show, handleShow, handleClose, children }) => {
     <>
       <div className={css.modalBox}>
         <Modal.Title>Contacts</Modal.Title>
-        <Button variant="primary" onClick={handleShow}>
-          + Add contact
+        <Button variant="contained" onClick={handleShow}>
+          Add contact
         </Button>
       </div>
 

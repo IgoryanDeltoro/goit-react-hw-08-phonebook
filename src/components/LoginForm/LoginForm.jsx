@@ -1,8 +1,7 @@
 import { useDispatch } from 'react-redux';
-
-import css from '../LoginForm/LoginForm.module.css';
 import { logInThunk } from 'redux/authorization/operations';
 import { useNavigate } from 'react-router-dom';
+import { FormBox } from 'css/formBox.styled';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -18,16 +17,38 @@ export const LoginForm = () => {
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-      <label className={css.label}>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label className={css.label}>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <FormBox>
+      <form onSubmit={handleSubmit} autoComplete="off">
+        <div className="mb-3">
+          <label htmlFor="exampleInputEmail1" className="form-label">
+            Email address
+          </label>
+          <input
+            type="email"
+            name="email"
+            className="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          <div id="emailHelp" className="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <div className="mb-3">
+          <label htmlFor="exampleInputPassword1" className="form-label">
+            Password
+          </label>
+          <input
+            type="password"
+            name="password"
+            className="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Login
+        </button>
+      </form>
+    </FormBox>
   );
 };
