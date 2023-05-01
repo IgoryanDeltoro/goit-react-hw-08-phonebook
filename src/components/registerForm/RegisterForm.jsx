@@ -29,7 +29,7 @@ export const RegisterForm = () => {
       <form onSubmit={handleSubmit} autoComplete="off">
         <div className="mb-3">
           <label htmlFor="exampleInputName1" className="form-label">
-            Email address
+            Name
           </label>
           <input
             type="name"
