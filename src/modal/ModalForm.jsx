@@ -3,6 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Filter from 'components/filter/Filter';
 import { BtnTop, BtnDown, ModalBox, Title } from './ModalForm.styled';
+import AddIcon from '@mui/icons-material/Add';
 
 export const ModalForm = ({ show, handleShow, handleClose, children }) => {
   return (
@@ -17,12 +18,8 @@ export const ModalForm = ({ show, handleShow, handleClose, children }) => {
         >
           Add contact
         </BtnTop>
-        <BtnDown
-          sx={{ borderRadius: 20 }}
-          variant="contained"
-          onClick={handleShow}
-        >
-          Add contact
+        <BtnDown aria-label="upload picture" size="large" onClick={handleShow}>
+          <AddIcon sx={{ width: 50, height: 50, color: 'white' }} />
         </BtnDown>
       </ModalBox>
 

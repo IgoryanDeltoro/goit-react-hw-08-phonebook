@@ -1,6 +1,7 @@
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Modal from 'react-bootstrap/Modal';
+import IconButton from '@mui/material/IconButton';
 
 export const BtnTop = styled(Button)(({ theme }) => ({
   display: 'block',
@@ -23,13 +24,16 @@ export const Title = styled(Modal.Title)(({ theme }) => ({
   },
 }));
 
-export const BtnDown = styled(Button)(({ theme }) => ({
+export const BtnDown = styled(IconButton)(({ theme }) => ({
   display: 'none',
   [theme.breakpoints.between('xs', 'sm')]: {
-    display: 'block',
+    display: 'flex',
     position: 'absolute',
     bottom: '25px',
     right: '25px',
-    zIndex: '50px',
+    zIndex: '50',
+    width: '45px',
+    height: '45px',
+    backgroundColor: '#3e87e4',
   },
 }));
