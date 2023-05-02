@@ -1,12 +1,9 @@
 import { useDispatch } from 'react-redux';
-// import css from '../registerForm/RegisterForm.module.css';
 import { signUpThunk } from 'redux/authorization/operations';
-import { useNavigate } from 'react-router-dom';
 import { FormBox } from 'container/formBox.styled';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
-  const navigation = useNavigate();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -22,7 +19,6 @@ export const RegisterForm = () => {
     );
 
     form.reset();
-    navigation('/contacts');
   };
   return (
     <FormBox>

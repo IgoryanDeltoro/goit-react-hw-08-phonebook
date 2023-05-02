@@ -1,11 +1,10 @@
 import { useDispatch } from 'react-redux';
 import { logInThunk } from 'redux/authorization/operations';
-import { useNavigate } from 'react-router-dom';
 import { FormBox } from 'container/formBox.styled';
+import { RegisterText, SignUpLink, SubmitBox } from './LoginForm.styled';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
-  const navigation = useNavigate();
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -13,7 +12,6 @@ export const LoginForm = () => {
     const { email, password } = form.elements;
     dispatch(logInThunk({ email: email.value, password: password.value }));
     form.reset();
-    navigation('/contacts');
   };
 
   return (
@@ -45,9 +43,15 @@ export const LoginForm = () => {
             id="exampleInputPassword1"
           />
         </div>
-        <button type="submit" className="btn btn-primary">
-          Login
-        </button>
+        <SubmitBox>
+          <button type="submit" className="btn btn-primary">
+            Login
+          </button>
+          <RegisterText>
+            If you haven't got an account, please
+            <SignUpLink to="/register"> Sign up </SignUpLink>
+          </RegisterText>
+        </SubmitBox>
       </form>
     </FormBox>
   );

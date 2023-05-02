@@ -7,7 +7,7 @@ export const AuthNav = () => {
     <Box sx={{ display: 'flex', borderRadius: 5 }}>
       {registration.map(element => (
         <MenuItem key={element}>
-          <Link to={'/' + element}>{element}</Link>
+          <Link to={'/' + element.toLowerCase()}>{element}</Link>
         </MenuItem>
       ))}
     </Box>

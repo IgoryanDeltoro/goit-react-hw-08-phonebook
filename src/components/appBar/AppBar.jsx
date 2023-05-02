@@ -1,19 +1,92 @@
-// import { useAuth } from 'hooks';
-// import { Navigation } from 'components/navigation/Navigation';
-// import css from '../appBar/AppBar.module.css';
-// import { AuthNav } from 'components/authNav/AuthNav';
-// import { UserMenu } from 'components/userMenu/UserMenu';
-// import { HeaderContainer } from '../../container/Container.styled';
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import AdbIcon from '@mui/icons-material/Adb';
+import { useAuth } from 'hooks';
+import { UserMenu } from 'components/userMenu/UserMenu';
+import { AuthNav } from 'components/authNav/AuthNav';
+import { Navigation } from 'components/navigation/Navigation';
 
-// export const AppBar = () => {
-//   const { isLoggedIn } = useAuth();
+function ResponsiveAppBar() {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const { isLoggedIn } = useAuth();
 
-//   return (
-//     <header className={css.header}>
-//       <HeaderContainer>
-//         <Navigation />
-//         {isLoggedIn ? <UserMenu /> : <AuthNav />}
-//       </HeaderContainer>
-//     </header>
-//   );
-// };
+  const handleOpenNavMenu = event => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = event => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  return (
+    <AppBar position="static">
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="#"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            PhoneBook
+          </Typography>
+          <Navigation
+            anchorElNav={anchorElNav}
+            handleOpenNavMenu={handleOpenNavMenu}
+            handleCloseNavMenu={handleCloseNavMenu}
+          />
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href=""
+            sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none' },
+              flexGrow: 1,
+              fontFamily: 'monospace',
+              fontWeight: 500,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            PhoneBook
+          </Typography>
+
+          {isLoggedIn ? (
+            <UserMenu
+              anchorElUser={anchorElUser}
+              close={handleCloseUserMenu}
+              open={handleOpenUserMenu}
+            />
+          ) : (
+            <AuthNav />
+          )}
+        </Toolbar>
+      </Container>
+    </AppBar>
+  );
+}
+export default ResponsiveAppBar;

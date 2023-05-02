@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
-import { Layout } from './layout/Layout';
+import { Layout } from './Layout';
 // import { lazy } from 'react';
 import { Home } from '../pages/Home';
 import { Register } from 'pages/Register';
@@ -10,6 +10,8 @@ import { getCurrentUserThunk } from 'redux/authorization/operations';
 
 import { useAuth } from 'hooks';
 import { useDispatch } from 'react-redux';
+import { PrivateRoute } from './PrivateRoute';
+import { PublicRoute } from './PublicRoute';
 // const HomePage = lazy(() => import('../pages/Home'));
 // const RegisterPage = lazy(() => import('../pages/Register'));
 // const LoginPage = lazy(() => import('../pages/Login'));
@@ -28,9 +30,30 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/contacts" element={<Contacts />} />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute>
+              <Contacts />
+            </PrivateRoute>
+          }
+        />
       </Route>
     </Routes>
   );

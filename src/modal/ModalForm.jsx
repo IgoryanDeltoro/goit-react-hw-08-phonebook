@@ -1,4 +1,3 @@
-// import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Filter from 'components/filter/Filter';

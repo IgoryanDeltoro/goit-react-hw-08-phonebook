@@ -14,6 +14,7 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
+import { Link } from 'components/authNav/AuthNav.styled';
 
 export const UserMenu = ({ close, open, anchorElUser }) => {
   const dispatch = useDispatch();
@@ -52,8 +53,16 @@ export const UserMenu = ({ close, open, anchorElUser }) => {
         open={Boolean(anchorElUser)}
         onClose={close}
       >
-        <MenuItem onClick={handleLogout}>
-          <Typography textAlign="center">Logout</Typography>
+        <MenuItem
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+          onClick={handleLogout}
+        >
+          <Typography variant="text">{user.name}</Typography>
+          <Typography variant="text">{user.email}</Typography>
+          <Link>Logout</Link>
         </MenuItem>
       </Menu>
     </Box>

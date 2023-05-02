@@ -2,7 +2,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Container } from 'container/Container.styled';
-import ResponsiveAppBar from 'components/appBar/AppBars';
+import ResponsiveAppBar from 'components/appBar/AppBar';
 
 export const Layout = () => {
   return (
