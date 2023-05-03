@@ -4,6 +4,7 @@ import { useAuth } from 'hooks';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getContactsThunk } from 'redux/contacts/operations';
+
 const Contacts = () => {
   const dispatch = useDispatch();
   const { token } = useAuth();
