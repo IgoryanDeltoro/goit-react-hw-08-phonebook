@@ -69,7 +69,7 @@ export const RegisterForm = () => {
         <button type="submit" className="btn btn-primary">
           Register
         </button>
-        {error === 400 && (
+        {error === 'register: 400' && (
           <div
             style={{ color: 'red', marginBottom: '15px' }}
             id="emailHelp"

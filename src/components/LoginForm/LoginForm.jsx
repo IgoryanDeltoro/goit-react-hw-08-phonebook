@@ -31,7 +31,7 @@ export const LoginForm = () => {
             aria-describedby="emailHelp"
             required
           />
-          {error !== 400 ? (
+          {error !== 'login: 400' ? (
             <div id="emailHelp" className="form-text">
               We'll never share your email with anyone else.
             </div>
