@@ -3,7 +3,7 @@ import { signUpThunk } from 'redux/authorization/operations';
 import { FormBox } from 'container/formBox.styled';
 import { useAuth } from 'hooks';
 
-export const RegisterForm = () => {
+const RegisterForm = () => {
   const dispatch = useDispatch();
   const { error } = useAuth();
 
@@ -83,3 +83,5 @@ export const RegisterForm = () => {
     </FormBox>
   );
 };
+
+export default RegisterForm;

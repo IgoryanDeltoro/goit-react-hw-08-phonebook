@@ -4,7 +4,7 @@ import { FormBox } from 'container/formBox.styled';
 import { RegisterText, SignUpLink, SubmitBox } from './LoginForm.styled';
 import { useAuth } from 'hooks';
 
-export const LoginForm = () => {
+const LoginForm = () => {
   const dispatch = useDispatch();
   const { error } = useAuth();
 
@@ -66,3 +66,4 @@ export const LoginForm = () => {
     </FormBox>
   );
 };
+export default LoginForm;
