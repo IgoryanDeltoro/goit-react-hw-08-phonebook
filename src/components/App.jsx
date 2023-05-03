@@ -1,21 +1,18 @@
+/* eslint-disable no-unused-vars */
+import Contacts from '../pages/Contacts';
+import { getCurrentUserThunk } from 'redux/authorization/operations';
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Layout } from './Layout';
-// import { lazy } from 'react';
-import Home from '../pages/Home';
-import Register from 'pages/Register';
-import Login from 'pages/Login';
-import Contacts from 'pages/Contacts';
-import { getCurrentUserThunk } from 'redux/authorization/operations';
-
 import { useAuth } from 'hooks';
 import { useDispatch } from 'react-redux';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
-// const HomePage = lazy(() => import('../pages/Home'));
-// const RegisterPage = lazy(() => import('../pages/Register'));
-// const LoginPage = lazy(() => import('../pages/Login'));
-// const ContactsPage = lazy(() => import('../pages/Contacts'));
+import { lazy } from 'react';
+const HomePage = lazy(() => import('../pages/Home'));
+const RegisterPage = lazy(() => import('../pages/Register'));
+const LoginPage = lazy(() => import('../pages/Login'));
+const ContactPage = lazy(() => import('../pages/Contacts'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -29,12 +26,12 @@ const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
+        <Route index element={<HomePage />} />
         <Route
           path="/register"
           element={
             <PublicRoute>
-              <Register />
+              <RegisterPage />
             </PublicRoute>
           }
         />
@@ -42,7 +39,7 @@ const App = () => {
           path="/login"
           element={
             <PublicRoute>
-              <Login />
+              <LoginPage />
             </PublicRoute>
           }
         />
@@ -50,7 +47,7 @@ const App = () => {
           path="/contacts"
           element={
             <PrivateRoute>
-              <Contacts />
+              <ContactPage />
             </PrivateRoute>
           }
         />
