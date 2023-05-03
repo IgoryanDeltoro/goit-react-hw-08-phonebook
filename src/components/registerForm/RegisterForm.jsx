@@ -1,9 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { signUpThunk } from 'redux/authorization/operations';
 import { FormBox } from 'container/formBox.styled';
+import { useAuth } from 'hooks';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  const { error } = useAuth();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -28,6 +30,7 @@ export const RegisterForm = () => {
             Name
           </label>
           <input
+            required
             type="name"
             name="name"
             className="form-control"
@@ -39,6 +42,7 @@ export const RegisterForm = () => {
             Email address
           </label>
           <input
+            required
             type="email"
             name="email"
             className="form-control"
@@ -54,15 +58,27 @@ export const RegisterForm = () => {
             Password
           </label>
           <input
+            required
             type="password"
             name="password"
             className="form-control"
             id="exampleInputPassword1"
           />
         </div>
+
         <button type="submit" className="btn btn-primary">
           Register
         </button>
+        {error === 400 && (
+          <div
+            style={{ color: 'red', marginBottom: '15px' }}
+            id="emailHelp"
+            className="form-text"
+          >
+            Your email already exists or the password is less than 7 characters
+            long.
+          </div>
+        )}
       </form>
     </FormBox>
   );

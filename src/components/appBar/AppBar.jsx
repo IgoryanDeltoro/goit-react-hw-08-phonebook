@@ -60,14 +60,14 @@ function ResponsiveAppBar() {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="#"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 500,
-              letterSpacing: '.3rem',
+              letterSpacing: '1px',
               color: 'inherit',
               textDecoration: 'none',
             }}

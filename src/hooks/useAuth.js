@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import {
+  selectError,
   selectIsLoggedIn,
   selectRefreshing,
   selectToken,
@@ -11,11 +12,13 @@ export const useAuth = () => {
   const isRefreshing = useSelector(selectRefreshing);
   const user = useSelector(selectUser);
   const token = useSelector(selectToken);
+  const error = useSelector(selectError);
 
   return {
     isLoggedIn,
     isRefreshing,
     token,
     user,
+    error,
   };
 };

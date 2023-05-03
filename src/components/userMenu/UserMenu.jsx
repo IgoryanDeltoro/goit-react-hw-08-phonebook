@@ -1,6 +1,5 @@
 import { useAuth } from 'hooks';
 import { useDispatch } from 'react-redux';
-// import css from '../userMenu/UserMenu.module.css';
 import { logOutThunk } from 'redux/authorization/operations';
 import { useNavigate } from 'react-router-dom';
 import { deepOrange } from '@mui/material/colors';

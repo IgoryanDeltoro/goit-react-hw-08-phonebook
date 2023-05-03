@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import {
   getCurrentUserQuery,
   logInQuery,
@@ -12,7 +13,7 @@ export const signUpThunk = createAsyncThunk(
     try {
       return await signUpQuery(data);
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.request.status);
     }
   }
 );
@@ -22,7 +23,7 @@ export const logInThunk = createAsyncThunk(
     try {
       return await logInQuery(data);
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.request.status);
     }
   }
 );
